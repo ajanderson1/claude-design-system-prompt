@@ -23,6 +23,8 @@ If the design is clearly mid-flight (broken layout, missing sections, placeholde
 
 Use the ${AGENT_TOOL_NAME} tool to launch all four agents concurrently in a single message. Each agent runs the equivalent of one of the standalone review skills, scoped to this file.
 
+Instruct every agent explicitly: **report every issue found, including uncertain and low-severity ones, with a confidence and severity estimate for each.** Coverage is the agent's job; filtering and prioritization happen in Phase 3. An agent that self-censors "minor" findings silently lowers recall.
+
 ### Agent 1: Accessibility audit
 
 Run the full `accessibility-audit` review:
@@ -41,6 +43,7 @@ Run the full `ai-slop-check` review:
 - Rounded corners with left-border accent (used as default)
 - Hand-drawn SVG illustrations
 - Overused fonts as defaults (Inter, Roboto, Arial, Fraunces, bare system stacks)
+- The editorial-warm house style as a silent default (cream background + serif display + terracotta accent, without a brand reason)
 - Pure white and pure black
 - Random invented colors
 - Random spacing values

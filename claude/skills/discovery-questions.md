@@ -31,11 +31,11 @@ Your questions should be informed by what's already there. Asking "do you have a
 - The user is explicit about scope, audience, and constraints
 - The task is "recreate this exact thing" (a clear reference)
 
-If you're not sure whether to ask: ask.
+If the open question changes the design's direction (audience, format, brand, scope), ask. If it's a minor choice you can defensibly make yourself (a label, a default value, two equivalent approaches), decide, build, and note the decision in your summary instead of asking.
 
 ## Phase 3: Build the question set
 
-Every question round should include the following **always-ask** questions, plus at least 4 problem-specific questions.
+Every question round should include the following **always-ask** questions, plus the problem-specific questions the brief actually leaves open (typically 3–6).
 
 ### Always-ask: design context
 
@@ -90,7 +90,7 @@ These vary by the task. Examples:
 - Anything explicitly off-limits?
 - Industry / context (B2B SaaS, consumer, editorial, government)?
 
-Aim for **at least 10 questions total** when the brief is genuinely ambiguous. Fewer if the user has given a lot of context already.
+Size the round to the ambiguity: a genuinely open brief may warrant ~10 questions; a half-specified one may need only 3–4. Never pad the round to hit a number — a question whose answer wouldn't change what you build is noise.
 
 ## Phase 4: Format the question round
 
@@ -122,7 +122,7 @@ Once the user has answered:
 
 - Briefly recap the choices that will most affect the design ("OK — landing page, B2B audience, formal tone, three variations on different visual treatments, single CTA, no novel ideas")
 - Note any answers that surprised you or that you'd push back on (gently — the user is the manager)
-- Then proceed to the appropriate building skill (`make-a-deck`, `make-a-prototype`, `wireframe`, etc.)
+- Then proceed to the appropriate building skill (`make-a-deck`, `make-a-prototype`, `wireframe`, etc.) and execute autonomously. This round was your chance to ask — don't come back with follow-up questions for minor decisions; make them and list them in your summary.
 
 ## Phase 7: Re-question on signal change
 
@@ -134,3 +134,4 @@ If during the design work you discover that an early answer was wrong (e.g., the
 - **Don't ask everything.** A 30-question form is hostile. Cap around 10–15 for most work.
 - **Don't ask one at a time across multiple turns.** Bundle into one form.
 - **Don't ask about details you can derive.** If the user attached a brand guide with their primary color, don't ask what their primary color is.
+- **Don't ask to be safe.** A question is justified by the design impact of its answer, not by your uncertainty.

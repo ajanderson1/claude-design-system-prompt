@@ -22,7 +22,7 @@ For each element, you need to verify the full state set in Phase 2.
 
 ## Phase 2: Per-element state verification
 
-For each interactive element, check all six aspects below.
+For each interactive element, check all six aspects below. Flag everything you find, including borderline cases — note a confidence level rather than silently dropping a finding you're unsure about.
 
 ### 1. Default (resting) state
 

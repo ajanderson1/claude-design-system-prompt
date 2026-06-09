@@ -20,6 +20,8 @@ Read the file. Skim referenced CSS, tokens, and component files so you can resol
 
 Walk through the design and apply each rule below. Single agent — these patterns are obvious enough that parallel dispatch is overkill.
 
+Report every detection, including uncertain or low-severity ones, with a confidence and severity estimate. Your job at this stage is coverage — filtering happens when you fix (Phase 3) or when the findings are aggregated by `polish-pass`.
+
 ### 1. Gradients — flat or subtle, on-tone
 
 **Default:** flat color from the design system, or a subtle on-tone gradient (two stops, low contrast, same hue family). Flat is almost always stronger.
@@ -104,6 +106,19 @@ A placeholder is better than a bad illustration. It signals "asset needed" witho
 **Default:** define spacing tokens (`--space-xs: 4px` through `--space-2xl: 64px`) and use them. Multiples of 4 or 8 feel intentional.
 
 **Detect & replace:** off-scale values like `padding: 7px 15px`, `margin: 18px`, `gap: 13px`. They feel chaotic.
+
+### 9. The editorial-warm house style — deliberate or absent
+
+**Default:** an aesthetic direction chosen for the brief (see `frontend-aesthetic-direction`). The warm-editorial look is legitimate for editorial, hospitality, and portfolio work — when it traces to a brand or an explicitly committed direction.
+
+**Detect & question** the combination, absent a brand reason:
+
+- Cream / warm off-white page backgrounds in the `#F4F1EA` family
+- Serif display faces as silent defaults (Georgia, Playfair Display, Fraunces)
+- Italic word-accents in headlines
+- Terracotta / amber accent palette
+
+Any one of these can be a deliberate choice. All of them together — especially on a dashboard, dev tool, fintech, healthcare, or enterprise surface — is the default-template look, today's equivalent of the purple gradient. Replace with the committed direction, or flag for the user if no direction exists.
 
 ## Phase 3: Fix and summarize
 

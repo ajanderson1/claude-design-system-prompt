@@ -49,6 +49,8 @@ A variation is not "the same design with a different color." Each variation shou
 
 If two variations are too close, drop one and replace it with a more substantive alternative. The user should be able to articulate the difference between any two variations in one sentence.
 
+**Specify each variation concretely before building it** — distinct palette family, distinct type pairing, distinct layout skeleton, written down per variation. Variety must be designed, not hoped for: left unspecified, variations drift toward one default look (typically the warm-editorial house style). For the novel variation, deliberately pick something off-distribution and interesting.
+
 ## Phase 5: Present in a single file
 
 Use the `design_canvas.jsx` starter component for static variations side-by-side, or use **tweaks** (see `make-tweakable`) if the variations share most of the structure and differ on a few axes.

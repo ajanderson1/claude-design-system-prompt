@@ -25,7 +25,7 @@ Ask the user (or confirm if they've stated):
 - **Reference designs they admire.** Specific brands, sites, or apps. Ask what specifically they admire — the type, the spacing, the color, the tone, the density?
 - **Off-limits.** What aesthetics or tropes does the user explicitly want to avoid?
 
-If the user is unsure, propose 2–3 aesthetic directions framed by adjective and let them pick.
+If the user is unsure, propose **4 distinct visual directions**, each specified concretely — background hex / accent hex / display + body typeface, with a one-line rationale tied to the brief — and let them pick. The directions must not share a palette family: four takes on warm-cream is one direction, not four. Make at least one deliberately off-distribution.
 
 ## Phase 3: Commit to the system — make it concrete
 
@@ -41,7 +41,7 @@ Pick **specific** fonts (not "a sans-serif"):
 - **Body font** — name (often the same family), weight, size scale
 - **Mono font** (if needed for code) — name
 
-Avoid the overused defaults — Inter, Roboto, Arial, Fraunces, bare system stacks. Pick something with intent: a humanist sans (Söhne, Suisse), a modern serif (Tiempos, GT Sectra), an editorial classic (Tiempos Headline, Canela), a typewriter mono (JetBrains Mono, IBM Plex Mono), a geometric sans (Söhne Buch, Visby), depending on the mood.
+Avoid the overused defaults — Inter, Roboto, Arial, bare system stacks, and the silent serif-display defaults (Fraunces, Playfair Display, Georgia-as-display). Pick something with intent: a humanist sans (Söhne, Suisse), a modern serif (Tiempos, GT Sectra), an editorial classic (Tiempos Headline, Canela), a typewriter mono (JetBrains Mono, IBM Plex Mono), a geometric sans (Söhne Buch, Visby), depending on the mood.
 
 If the user might not have access to a paid foundry, suggest the closest free alternative (e.g., "Inter is overused, but Söhne is paid — try Söhne for production, or Albert Sans / Geist as free alternatives").
 
@@ -54,6 +54,8 @@ Pick a tone:
 - **Warm** — cream, beige, gold, terracotta, rust
 - **Cool** — gray, slate, ice, blue
 - **Neutral** — concrete, charcoal, off-white
+
+**The warm-editorial combination (cream background + serif display + terracotta/amber accent) is the current default-model look.** Choose it only when the brief is genuinely editorial, hospitality, or portfolio — and say so explicitly in the direction block. If the direction drifts there without a stated reason, pick again.
 
 Then pick:
 

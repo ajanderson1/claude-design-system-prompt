@@ -38,7 +38,7 @@ claude-design-system-prompt/
 │       ├── design-system-extract.md     Pull tokens from sources
 │       ├── component-extract.md         Inventory reusable components
 │       ├── accessibility-audit.md       WCAG, semantic, keyboard, motion
-│       ├── ai-slop-check.md             Gradient / emoji / font trope detection
+│       ├── ai-slop-check.md             Gradient / emoji / font / house-style trope detection
 │       ├── hierarchy-rhythm-review.md   Size / weight / color + spacing scale
 │       ├── interaction-states-pass.md   Hover / active / disabled / focus / loading
 │       └── polish-pass.md               Umbrella final-gate review
@@ -86,6 +86,17 @@ design-system-extract → generate-variations → make-tweakable → polish-pass
 ### Adapt for your platform
 
 The prompt assumes an HTML-output design environment (similar to Claude.ai's design tool). If your target environment is different — a Figma plugin, a code-only assistant, a chat-only design coach — you'll need to adjust the workflow chapters and tool references. The principles (chapters 5–16) translate to any medium.
+
+## Model calibration
+
+The `claude/` variant is calibrated for current Anthropic frontier models (Fable 5 and the Opus 4.7/4.8 lineage), which follow instructions more literally and need less aggressive prompting than earlier generations:
+
+- **Conditions instead of quotas.** No "ask at least N questions", no "CRITICAL: YOU MUST". Current models treat quotas as literal contracts and over-trigger on them; the prompt states the conditions under which to act, plus an autonomy clause for minor decisions (pick a reasonable option and note it, rather than asking).
+- **Explicit triggers for skills and subagents.** These models under-reach for optional capabilities by default, so every skill description states *when* to invoke it, and verifier delegation has an explicit trigger ("after every substantive visual change").
+- **Coverage-first reviews.** Review agents report everything with confidence/severity estimates and let the aggregation step filter. Current models follow "only report important issues" literally, which silently suppresses findings.
+- **House-style guard.** The current models' default aesthetic (cream background, serif display type, terracotta/amber accents) is detected by `ai-slop-check` (rule 9) and pre-empted by `frontend-aesthetic-direction`'s four-directions protocol. Sampling parameters (`temperature`) no longer exist on these models, so visual variety must come from explicit per-variation specs, not randomness.
+
+On older models (Claude Opus/Sonnet 4.6 and earlier, or non-Anthropic models), the calmer phrasing may under-trigger — restore stronger imperative language if you see the model skipping question rounds or reviews. The `codex/` variant is maintained separately and is unaffected by these notes.
 
 ## Design principles, in short
 

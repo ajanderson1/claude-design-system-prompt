@@ -21,6 +21,8 @@ Read the file and the styles it references. Note the medium (slide / page / mobi
 
 Use the ${AGENT_TOOL_NAME} tool to launch both agents concurrently in a single message.
 
+Instruct both agents explicitly: report every issue found, including uncertain and low-severity ones, with a confidence and severity estimate. Coverage is the agent's job; filtering happens at aggregation (Phase 3).
+
 ### Agent 1: Hierarchy review
 
 For every screen, slide, or major section:

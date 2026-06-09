@@ -47,6 +47,8 @@ Vary across:
 
 Start with the most by-the-book variation (the obvious one) and end with the most novel (the riskier bet). The user is more likely to pick something interesting if they see the safe option next to a riskier one.
 
+Write down each variation's distinguishing structure before sketching it. Left unspecified, variations converge on near-identical layouts — make the differences deliberate, and make at least one variation genuinely off-distribution.
+
 ## Phase 4: Annotate the variations
 
 For each variation, add 2–4 annotation points so the user can see what's interesting about it:

@@ -16,6 +16,8 @@ Read the file end-to-end. Note: the framework or component library in use, the d
 
 Use the ${AGENT_TOOL_NAME} tool to launch all four agents concurrently in a single message. Pass each agent the full file contents so it has the complete context.
 
+Instruct every agent explicitly: report every issue found, including borderline and low-severity ones, with a confidence and severity estimate. Coverage is the agent's job; filtering happens at aggregation (Phase 3).
+
 ### Agent 1: Contrast and Color
 
 For each text and UI element:
