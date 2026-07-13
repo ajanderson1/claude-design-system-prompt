@@ -4,7 +4,7 @@ Reverse-engineered system prompt of Claude Design from Anthropic.
 
 A system prompt and skill library that turns an LLM into an opinionated, accessibility-aware, AI-slop-resistant design collaborator.
 
-Open source, MIT licensed. Drop the prompt into any LLM that supports system prompts (Claude, GPT, Gemini, local models) and pair with the procedural skills as needed.
+Open source, MIT licensed. Install it as a **Claude Code plugin** (agent + 14 skills, one command — see [Install as a Claude Code plugin](#install-as-a-claude-code-plugin)), or drop the raw prompt into any LLM that supports system prompts (Claude, GPT, Gemini, local models) and pair with the procedural skills as needed.
 
 ## What this is
 
@@ -25,9 +25,18 @@ Plus 14 procedural skills the agent can invoke for production, extraction, and r
 
 ```
 claude-design-system-prompt/
-├── claude/                              Claude Code / Claude.ai variant
+├── .claude-plugin/                      Claude Code plugin + marketplace manifests
+│   ├── plugin.json                      Plugin metadata
+│   └── marketplace.json                 Marketplace catalog (one plugin, source ".")
+├── agents/                              Plugin agents
+│   └── design-partner.md                The design agent — full system prompt + skill awareness
+├── skills/                              14 plugin skills (each <name>/SKILL.md, with frontmatter)
+│   ├── discovery-questions/SKILL.md
+│   ├── frontend-aesthetic-direction/SKILL.md
+│   └── … (12 more)
+├── claude/                              Raw prompt source — Claude Code / Claude.ai variant
 │   ├── system-prompt.md                 Main system prompt — 20 chapters
-│   └── skills/                          14 invokable skills
+│   └── skills/                          14 skills as plain markdown (no frontmatter)
 │       ├── discovery-questions.md       Kickoff question protocol
 │       ├── frontend-aesthetic-direction.md  Commit to a look when no brand exists
 │       ├── wireframe.md                 Low-fi exploration, 3+ variations
@@ -50,7 +59,56 @@ claude-design-system-prompt/
 └── LICENSE                              MIT
 ```
 
-## How to use it
+The `agents/` + `skills/` directories and the two manifests are what Claude Code installs. The `claude/` and `codex/` directories are the raw prompt source, unchanged — use them if you'd rather paste the prompt into another tool by hand.
+
+## Install as a Claude Code plugin
+
+The plugin ships one agent — **`design-partner`** — that carries the full 20-chapter system prompt and knows when to invoke each of the 14 skills, plus the 14 skills themselves.
+
+### Install from GitHub (recommended)
+
+In Claude Code, add this repo as a marketplace, then install the plugin:
+
+```
+/plugin marketplace add ajanderson1/claude-design-system-prompt
+/plugin install claude-design-system@claude-design-system-prompt
+```
+
+Or non-interactively from your shell:
+
+```sh
+claude plugin marketplace add ajanderson1/claude-design-system-prompt
+claude plugin install claude-design-system@claude-design-system-prompt
+```
+
+Then restart Claude Code (or start a new session) so the agent and skills load.
+
+### Install from a local clone
+
+If you've cloned the repo, point the marketplace at the local path instead:
+
+```sh
+git clone https://github.com/ajanderson1/claude-design-system-prompt
+claude plugin marketplace add ./claude-design-system-prompt
+claude plugin install claude-design-system@claude-design-system-prompt
+```
+
+### Use it
+
+- **Invoke the agent** by describing design work — "design a landing page for X", "build me a clickable prototype", "this UI looks AI-generated, fix it". Claude routes substantive design requests to the `design-partner` agent, or you can call it explicitly with `@claude-design-system:design-partner`. The agent runs the design philosophy and reaches for the skills as triggers match.
+- **Invoke a skill directly** when you want just one procedure — e.g. `/accessibility-audit`, `/make-a-deck`, `/polish-pass`. All 14 skills are available on their own, and the agent chains them for you when it drives the work.
+
+### Manage or remove it
+
+```sh
+claude plugin list                                          # see what's installed
+claude plugin uninstall claude-design-system@claude-design-system-prompt
+claude plugin marketplace remove claude-design-system-prompt
+```
+
+> **Note on the system prompt.** A Claude Code plugin can't replace the base system prompt, so the design philosophy is delivered *through the agent* — when you invoke `design-partner`, it operates under the full prompt. To make it always-on for a session regardless of routing, paste `claude/system-prompt.md` into an output style or your project's `CLAUDE.md`. The skills work the same way either route.
+
+## How to use it (any LLM)
 
 ### Use the system prompt directly
 

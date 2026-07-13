@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "claude-design-system-prompt",
+  "owner": {
+    "name": "Trystan Sarrade",
+    "url": "https://github.com/Trystan-SA"
+  },
+  "metadata": {
+    "description": "The Claude Design System plugin — an opinionated, accessibility-aware, AI-slop-resistant design collaborator for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "claude-design-system",
+      "source": "./",
+      "description": "An opinionated, accessibility-aware, AI-slop-resistant design collaborator for Claude Code: a design-partner agent plus 14 invokable design skills.",
+      "license": "MIT",
+      "keywords": [
+        "design",
+        "frontend",
+        "ux",
+        "accessibility"
+      ]
+    }
+  ]
+}

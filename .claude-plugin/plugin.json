@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "claude-design-system",
+  "displayName": "Claude Design System",
+  "version": "1.0.0",
+  "description": "Turns Claude Code into an opinionated, accessibility-aware, AI-slop-resistant design collaborator: a design-partner agent carrying a full design philosophy, plus 14 invokable design skills for production, extraction, and review.",
+  "author": {
+    "name": "Trystan Sarrade"
+  },
+  "homepage": "https://github.com/ajanderson1/claude-design-system-prompt",
+  "repository": "https://github.com/ajanderson1/claude-design-system-prompt",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "frontend",
+    "ux",
+    "accessibility",
+    "design-system",
+    "prototype",
+    "ai-slop"
+  ]
+}
