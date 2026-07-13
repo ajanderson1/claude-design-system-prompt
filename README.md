@@ -4,7 +4,7 @@ Reverse-engineered system prompt of Claude Design from Anthropic.
 
 A system prompt and skill library that turns an LLM into an opinionated, accessibility-aware, AI-slop-resistant design collaborator.
 
-Open source, MIT licensed. Install it as a **Claude Code plugin** (agent + 14 skills, one command — see [Install as a Claude Code plugin](#install-as-a-claude-code-plugin)), or drop the raw prompt into any LLM that supports system prompts (Claude, GPT, Gemini, local models) and pair with the procedural skills as needed.
+Open source, MIT licensed. Install it as a **Claude Code plugin** (agent + 15 skills, one command — see [Install as a Claude Code plugin](#install-as-a-claude-code-plugin)), or drop the raw prompt into any LLM that supports system prompts (Claude, GPT, Gemini, local models) and pair with the procedural skills as needed.
 
 ## What this is
 
@@ -19,7 +19,7 @@ Most "design assistant" prompts produce generic SaaS-template output — aggress
 - Respecting the medium (real CSS Grid, `oklch()`, `text-wrap: pretty`, real interactive prototypes)
 - Quality over quantity (depth over breadth, polish every detail)
 
-Plus 14 procedural skills the agent can invoke for production, extraction, and review work.
+Plus 14 procedural skills the agent can invoke for production, extraction, and review work, and a `design-workflow` front-door skill that consults you on which stages to run and then hands the work to the agent.
 
 ## What's included
 
@@ -30,13 +30,15 @@ claude-design-system-prompt/
 │   └── marketplace.json                 Marketplace catalog (one plugin, source ".")
 ├── agents/                              Plugin agents
 │   └── design-partner.md                The design agent — full system prompt + skill awareness
-├── skills/                              14 plugin skills (each <name>/SKILL.md, with frontmatter)
+├── skills/                              15 plugin skills (each <name>/SKILL.md, with frontmatter)
+│   ├── design-workflow/SKILL.md         Front door — consults you, then dispatches the agent
 │   ├── discovery-questions/SKILL.md
 │   ├── frontend-aesthetic-direction/SKILL.md
 │   └── … (12 more)
 ├── claude/                              Raw prompt source — Claude Code / Claude.ai variant
 │   ├── system-prompt.md                 Main system prompt — 20 chapters
-│   └── skills/                          14 skills as plain markdown (no frontmatter)
+│   └── skills/                          15 skills as plain markdown (no frontmatter)
+│       ├── design-workflow.md           Front-door workflow orchestrator
 │       ├── discovery-questions.md       Kickoff question protocol
 │       ├── frontend-aesthetic-direction.md  Commit to a look when no brand exists
 │       ├── wireframe.md                 Low-fi exploration, 3+ variations
@@ -63,7 +65,7 @@ The `agents/` + `skills/` directories and the two manifests are what Claude Code
 
 ## Install as a Claude Code plugin
 
-The plugin ships one agent — **`design-partner`** — that carries the full 20-chapter system prompt and knows when to invoke each of the 14 skills, plus the 14 skills themselves.
+The plugin ships one agent — **`design-partner`** — that carries the full 20-chapter system prompt and knows when to invoke each of the 14 design skills, plus the 14 skills themselves and a 15th **`design-workflow`** front-door skill that consults you on which stages to run and then hands the plan to the agent.
 
 ### Install from GitHub (recommended)
 
@@ -95,8 +97,9 @@ claude plugin install claude-design-system@claude-design-system-prompt
 
 ### Use it
 
-- **Invoke the agent** by describing design work — "design a landing page for X", "build me a clickable prototype", "this UI looks AI-generated, fix it". Claude routes substantive design requests to the `design-partner` agent, or you can call it explicitly with `@claude-design-system:design-partner`. The agent runs the design philosophy and reaches for the skills as triggers match.
-- **Invoke a skill directly** when you want just one procedure — e.g. `/accessibility-audit`, `/make-a-deck`, `/polish-pass`. All 14 skills are available on their own, and the agent chains them for you when it drives the work.
+- **Start a guided project** with **`/design-workflow`** when the request is broad or open-ended ("help me design X end to end"). It reads your brief, asks which stages you want (discovery, aesthetic direction, wireframe, build, variations, review/polish), then dispatches the agent to run exactly those — one consultation, then autonomous.
+- **Invoke the agent directly** by describing design work — "design a landing page for X", "build me a clickable prototype", "this UI looks AI-generated, fix it". Claude routes substantive design requests to the `design-partner` agent, or you can call it explicitly with `@claude-design-system:design-partner`. The agent runs the design philosophy and reaches for the skills as triggers match.
+- **Invoke a single skill directly** when you want just one procedure — e.g. `/accessibility-audit`, `/make-a-deck`, `/polish-pass`. All the skills are available on their own, and the agent chains them for you when it drives the work.
 
 ### Manage or remove it
 
