@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "claude-design-system",
   "displayName": "Claude Design System",
-  "version": "1.0.0",
-  "description": "Turns Claude Code into an opinionated, accessibility-aware, AI-slop-resistant design collaborator: a design-partner agent carrying a full design philosophy, plus 14 invokable design skills for production, extraction, and review.",
+  "version": "1.1.0",
+  "description": "Turns Claude Code into an opinionated, accessibility-aware, AI-slop-resistant design collaborator: a design-partner agent carrying a full design philosophy, 14 invokable design skills for production, extraction, and review, and a design-workflow front-door skill that scopes a project with you and dispatches the agent.",
   "author": {
     "name": "Trystan Sarrade"
   },
